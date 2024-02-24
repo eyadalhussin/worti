@@ -1,0 +1,76 @@
+@import "/src/styles/breakpoints";
+@import "/src/styles/grid";
+@import "/src/styles/colors";
+
+.quiz-container{
+    @extend .container;
+    display: flex;
+    position: relative;
+    height: 75vh;
+    // max-height: 80vh;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.progress-bar{
+    width: 100%;
+    height: 10px;
+    border-radius: 20px;
+    background-color: #D9D9D9;
+    position: relative;
+    overflow: hidden;
+    .progress{
+        height: 100%;
+        width: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: map-get($map: $colors, $key: 'prim-700');
+        border-radius: 20px;
+    }
+}
+
+
+
+.mc{
+    position: relative;
+    transition: 0.2s ease;
+    cursor: pointer;
+    .mc-icon{
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        transform: translateY(-50%);
+    }
+
+    &:hover{
+        background-color: map-get($map: $colors, $key: 'white-hover');
+    }
+
+    &.correct{
+        border: 1.5px solid map-get($map: $colors, $key: 'succ-700');
+        span{
+            color: map-get($map: $colors, $key: 'succ-700');
+        }
+    }
+    &.false{
+        border: 1.5px solid map-get($map: $colors, $key: 'danger-700');
+        span{
+            color: map-get($map: $colors, $key: 'danger-700');
+        }
+    }
+    
+    &:active{
+        transform: scale(0.9);
+    }
+}
+
+.buttons{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

@@ -1,0 +1,29 @@
+@import "/src/styles/breakpoints";
+@import "/src/styles/grid";
+@import "/src/styles/colors";
+
+.input-custom{
+    all: unset;
+    width: 100%;
+    color: map-get($map: $colors, $key: 'txt');
+    height: 40px;
+    &::placeholder{
+        color: map-get($map: $colors, $key: 'txt');
+    }
+
+    &.ng-untouched{
+        border-bottom: 1px solid map-get($map: $colors, $key: 'prim-700');
+    }
+
+    &.ng-touched{
+        border-bottom: 1px solid map-get($map: $colors, $key: 'danger-700');
+    }
+
+    &.ng-valid.ng-touched{
+        border-bottom: 1px solid map-get($map: $colors, $key: 'succ-500');
+    }
+
+    &.ng-invalid.ng-touched{
+        border-bottom: 1px solid map-get($map: $colors, $key: 'danger-700');
+    }
+}

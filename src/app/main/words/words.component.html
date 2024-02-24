@@ -1,0 +1,43 @@
+<div class="container d-flex f-direction-c f-gap-4">
+    <!-- Info & Filter -->
+    <div class="row d-flex justify-sb align-c">
+        <div class="d-flex justify-s align-c">
+            <span class="txt-subhead txt-500 c-txt">Alle Wörter (33)</span>
+        </div>
+        <div class="d-flex justify-e align-c filter-container">
+            <span class="txt-body txt-500 c-txt">A-Z</span>
+        </div>
+    </div>
+
+    <!-- Words -->
+    <div class="words-container elevation-light-1">
+        <!-- Word -->
+        <div class="row word d-flex p-v-2" *ngFor="let i of numbers" (click)="editWord()">
+            <!-- Icon -->
+            <div class="col-xs-2 d-flex justify-c align-c">
+                <div class="number-icon">
+                    <span class="txt-caption txt-500 c-prim-700">22</span>
+                </div>
+            </div>
+            <!-- Word info -->
+            <div class="col-xs-10">
+                <!-- Word -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- Artikel -->
+                        <span class="txt-body txt-500 c-prim-700">Die </span>
+                        <!-- Wort -->
+                        <span class="txt-body txt-500 c-txt">Entwicklung</span>
+                    </div>
+                </div>
+                <!-- Meaning -->
+                <div class="row">
+                    <div class="col-xs-12"><span class="txt-caption txt-400 c-txt">Fortschritt durch technologische
+                            Innovationen.</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

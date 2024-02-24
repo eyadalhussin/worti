@@ -1,0 +1,55 @@
+<div class="container d-flex f-direction-c f-gap-5">
+    <!-- Greetings -->
+    <div class="row d-flex justify-s align-c f-gap-3">
+        <div class="back-container d-flex justify-c align-c t3e" (click)="navigate('words')">
+            <span class="material-symbols-outlined txt-headline-2 txt-500 c-prim-700">chevron_left</span>
+        </div>
+        <span class="txt-title txt-500 c-txt">Wort bearbeiten</span>
+        <div class="d-hidden"></div>
+    </div>
+    <!-- New Word Container -->
+    <form #from="ngForm" class="d-flex f-direction-c f-gap-4 elevation-light-1 border-r-2 p-v-4 p-h-2">
+        <!-- New Word text -->
+        <div class="row">
+            <div class="col-xs-12 d-flex justify-c align-c">
+                <span class="txt-subhead txt-500 c-prim-700">{{currentWord?.wort}}</span>
+            </div>
+        </div>
+        <!-- Inputs Wort & Artikel -->
+        <div class="row d-flex g-3 justify-sb align-c">
+            <!-- Word -->
+            <div class="col-xs-6">
+                <input type="text" class="input-custom" [ngModel]="currentWord?.wort" required name="word">
+            </div>
+            <!-- Artikel -->
+            <div class="col-xs-6">
+                <input type="text" class="input-custom" [ngModel]="currentWord?.artikel" required name="artikel" pattern="^(Der|Die|Das)$">
+            </div>
+        </div>
+        <!-- Inpt Synonym -->
+        <div class="col-xs-12">
+            <input type="text" class="input-custom" [ngModel]="currentWord?.synonym" required name="synonym">
+        </div>
+
+        <!-- Inpt Antynom -->
+        <div class="col-xs-12">
+            <input type="text" class="input-custom" [ngModel]="currentWord?.antynom" required name="antynom">
+        </div>
+
+        <!-- Inpt Bedeutung -->
+        <div class="col-xs-12">
+            <input type="text" class="input-custom" [ngModel]="currentWord?.bedeutung" required name="bedeutung">
+        </div>
+
+        <!-- Button Save -->
+        <div class="col-xs-12">
+            <div class="btn-filled-prim-700"><span>Aktualisieren</span></div>
+        </div>
+
+        <!-- Button Empty -->
+        <div class="col-xs-12">
+            <div class="btn-outlined-danger-700"><span>Löschen</span></div>
+        </div>
+
+    </form>
+</div>

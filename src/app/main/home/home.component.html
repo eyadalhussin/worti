@@ -1,0 +1,53 @@
+<div class="container d-flex f-direction-c f-gap-5">
+    <!-- Greetings -->
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="txt-headline txt-500 c-txt">Hello Eyad !</span>
+        </div>
+    </div>
+    <!-- New Word Container -->
+    <form #from="ngForm" class="d-flex f-direction-c f-gap-4 elevation-light-1 border-r-2 p-v-4 p-h-2">
+        <!-- New Word text -->
+        <div class="row">
+            <div class="col-xs-12">
+                <span class="txt-subhead txt-500 c-txt">Neues Wort hinzufügen</span>
+            </div>
+        </div>
+        <!-- Inputs Wort & Artikel -->
+        <div class="row d-flex g-3 justify-sb align-c">
+            <!-- Word -->
+            <div class="col-xs-6">
+                <input type="text" class="input-custom" ngModel required name="word" placeholder="Wort">
+            </div>
+            <!-- Artikel -->
+            <div class="col-xs-6">
+                <input type="text" class="input-custom" ngModel required name="artikel" placeholder="Artikel" pattern="^(Der|Die|Das)$">
+            </div>
+        </div>
+        <!-- Inpt Synonym -->
+        <div class="col-xs-12">
+            <input type="text" class="input-custom" ngModel required name="synonym" placeholder="Synonym">
+        </div>
+
+        <!-- Inpt Antynom -->
+        <div class="col-xs-12">
+            <input type="text" class="input-custom" ngModel required name="antynom" placeholder="Antynom">
+        </div>
+
+        <!-- Inpt Bedeutung -->
+        <div class="col-xs-12">
+            <input type="text" class="input-custom" ngModel required name="bedeutung" placeholder="Bedeutung">
+        </div>
+
+        <!-- Button Save -->
+        <div class="col-xs-12">
+            <div class="btn-filled-prim-700"><span>Hinzufügen</span></div>
+        </div>
+
+        <!-- Button Empty -->
+        <div class="col-xs-12">
+            <div class="btn-outlined-prim-700"><span>Leeren</span></div>
+        </div>
+
+    </form>
+</div>

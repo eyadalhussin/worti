@@ -1,0 +1,78 @@
+<div class="quiz-container justify-c align-c" *ngIf="!quizStarted">
+    <div class="container g-3">
+        <div class="row">
+            <div class="col-xs-12 d-flex justify-c align-c"><span class="txt-headline txt-500 c-txt">Wollen wir ein Quiz starten ?</span></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="btn-filled-prim-700"  (click)="startQuiz()"><span>Quiz Starten !</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="quiz-container" *ngIf="quizStarted">
+    <!-- Back , Training-type , Words-Count -->
+    <div class="row d-flex justify-sb align-c">
+        <!-- Arrow Back -->
+        <div class="back-container d-flex justify-c align-c t3e" (click)="endQuiz()">
+            <span class="material-symbols-outlined txt-headline-2 txt-500 c-prim-700">chevron_left</span>
+        </div>
+        <!-- Training Type -->
+        <div class="span txt-subhead txt-500 c-prim-700">Synonyme</div>
+        <!-- Words count -->
+        <div class="span txt-body txt-500 c-prim-700">15 / 30</div>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div class="row">
+        <div class="progress-bar">
+            <div class="progress">    
+            </div>
+        </div>
+    </div>
+
+    <!-- Question -->
+    <span class="txt-subhead txt-500 c-txt">Was ist ein Synonym von <span class="c-prim-700">Kompensieren</span> ?</span>
+
+    <!-- Multiple-Choice -->
+    <div class="multiple-choice-container d-flex f-direction-c f-gap-3">
+        <!-- 1 -->
+        <div class="row">
+            <div class="mc col-xs-12 elevation-light-1 d-flex justify-c align-c p-2 border-r-1 correct">
+                <span class="txt-body txt-500 c-txt">Ausgleichen</span>
+                <span class="mc-icon material-symbols-outlined c-succ-700">check</span>
+            </div>
+        </div>
+        <!-- 2 -->
+        <div class="row">
+            <div class="mc col-xs-12 elevation-light-1 d-flex justify-c align-c p-2 border-r-1">
+                <span class="txt-body txt-500 c-txt">Verschlimmern</span>
+            </div>
+        </div>
+        <!-- 3 -->
+        <div class="row">
+            <div class="mc col-xs-12 elevation-light-1 d-flex justify-c align-c p-2 border-r-1">
+                <span class="txt-body txt-500 c-txt">Ignorieren</span>
+            </div>
+        </div>
+        <!-- 4 -->
+        <div class="row">
+            <div class="mc col-xs-12 elevation-light-1 d-flex justify-c align-c p-2 border-r-1 false">
+                <span class="txt-body txt-500 c-txt">Verstärken</span>
+                <span class="mc-icon material-symbols-outlined c-succ-700">close</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="buttons">
+        <div class="col-xs-5">
+            <div class="btn-filled-prim-700"><span>Prev</span></div>
+        </div>
+        <div class="col-xs-5">
+            <div class="btn-filled-prim-700"><span>Next</span></div>
+        </div>
+    </div>
+
+</div>

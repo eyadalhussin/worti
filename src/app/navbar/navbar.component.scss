@@ -1,0 +1,68 @@
+@import "/src/styles/breakpoints";
+@import "/src/styles/grid";
+@import "/src/styles/colors";
+
+.navbar-container{
+    @extend .container;
+    max-width: 100%;
+    background-color: map-get($map: $colors, $key: 'prim-700');
+}
+
+.navbar-top{
+    width: 100%;
+    height: 56px;
+    background-color: map-get($map: $colors, $key: 'prim-700');
+}
+
+.navbar-bottom{
+    width: 100%;
+    background-color: map-get($map: $colors, $key: 'prim-700');
+    @include md{
+        display: none;
+    }
+}
+
+.navs-md{
+    display: none;
+    @include md{
+        display: flex;
+        justify-content: flex-end;
+        gap: 2em;
+        align-items: center;
+        .nav{
+            height: fit-content;
+            &.active{
+                border-radius: 5px;
+                background-color: map-get($map: $colors, $key: 'prim-800');
+            }
+        }
+    }
+}
+
+.navs{
+    height: 100%;
+}
+
+.navs{
+    .nav{
+        height: 35px;
+        &.active{
+            border-radius: 5px;
+            background-color: map-get($map: $colors, $key: 'prim-800');
+        }
+    }
+}
+
+.logo{
+    max-width: 80px;
+    height: auto;
+}
+
+.nav{
+    transition: 0.3s ease;
+    cursor: pointer;
+    &:hover{
+        background-color: map-get($map: $colors, $key: 'prim-900');
+        border-radius: 5px;
+    }
+}

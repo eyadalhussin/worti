@@ -8,7 +8,7 @@
         <div class="d-hidden"></div>
     </div>
     <!-- New Word Container -->
-    <form #from="ngForm" class="d-flex f-direction-c f-gap-4 elevation-light-1 border-r-2 p-v-4 p-h-2">
+    <form #form="ngForm" class="d-flex f-direction-c f-gap-4 elevation-light-1 border-r-2 p-v-4 p-h-2">
         <!-- New Word text -->
         <div class="row">
             <div class="col-xs-12 d-flex justify-c align-c">
@@ -19,36 +19,38 @@
         <div class="row d-flex g-3 justify-sb align-c">
             <!-- Word -->
             <div class="col-xs-6">
-                <input type="text" class="input-custom" [ngModel]="currentWord?.wort" required name="word">
+                <input type="text" class="input-custom" [ngModel]="currentWord?.wort" required name="wort">
             </div>
             <!-- Artikel -->
             <div class="col-xs-6">
                 <input type="text" class="input-custom" [ngModel]="currentWord?.artikel" required name="artikel" pattern="^(Der|Die|Das)$">
             </div>
         </div>
-        <!-- Inpt Synonym -->
+        <!-- Input Synonym -->
         <div class="col-xs-12">
             <input type="text" class="input-custom" [ngModel]="currentWord?.synonym" required name="synonym">
         </div>
 
-        <!-- Inpt Antynom -->
+        <!-- Input Antynom -->
         <div class="col-xs-12">
             <input type="text" class="input-custom" [ngModel]="currentWord?.antynom" required name="antynom">
         </div>
 
-        <!-- Inpt Bedeutung -->
+        <!-- Input Bedeutung -->
         <div class="col-xs-12">
             <input type="text" class="input-custom" [ngModel]="currentWord?.bedeutung" required name="bedeutung">
         </div>
 
         <!-- Button Save -->
         <div class="col-xs-12">
-            <div class="btn-filled-prim-700"><span>Aktualisieren</span></div>
+            <div class="btn-filled-prim-700" (click)="updateWord(form)" *ngIf="!updating"><span>Aktualisieren</span></div>
+            <div class="btn-outlined-prim-700" *ngIf="(updating) && (updateMessage == '')"><span class="loader"></span></div>
+            <div class="btn-filled-succ-700" *ngIf="(updating) && (updateMessage != '')"><span>{{updateMessage}}</span></div>
         </div>
 
         <!-- Button Empty -->
         <div class="col-xs-12">
-            <div class="btn-outlined-danger-700"><span>Löschen</span></div>
+            <div class="btn-outlined-danger-700" (click)="deleteWord()"><span>Löschen</span></div>
         </div>
 
     </form>

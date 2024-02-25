@@ -1,18 +1,18 @@
 @use "styles/index.scss";
 
-html, body{
-    scroll-behavior: smooth;
-    font-family: 'Roboto';
-    background-color: #fafafa;
+html,
+body {
+  scroll-behavior: smooth;
+  font-family: "Roboto";
+  background-color: #fafafa;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-*::-webkit-scrollbar{
-    display: none;
+*::-webkit-scrollbar {
+  display: none;
 }
-

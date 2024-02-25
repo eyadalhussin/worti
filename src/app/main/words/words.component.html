@@ -2,21 +2,28 @@
     <!-- Info & Filter -->
     <div class="row d-flex justify-sb align-c">
         <div class="d-flex justify-s align-c">
-            <span class="txt-subhead txt-500 c-txt">Alle Wörter (33)</span>
+            <span class="txt-subhead txt-500 c-txt">Alle Wörter ({{woerter.length}})</span>
         </div>
         <div class="d-flex justify-e align-c filter-container">
             <span class="txt-body txt-500 c-txt">A-Z</span>
         </div>
     </div>
 
+    <!-- Loader -->
+    <div class="row" *ngIf="woerter.length == 0">
+        <div class="col-xs-12 d-flex justify-c align-c p-5">
+            <span class="loader"></span>
+        </div>
+    </div>
+
     <!-- Words -->
-    <div class="words-container elevation-light-1">
+    <div class="words-container elevation-light-1"  *ngIf="woerter.length > 0">
         <!-- Word -->
-        <div class="row word d-flex p-v-2" *ngFor="let i of numbers" (click)="editWord()">
+        <div class="row word d-flex p-v-2" *ngFor="let wort of woerter" (click)="editWord(wort)">
             <!-- Icon -->
             <div class="col-xs-2 d-flex justify-c align-c">
                 <div class="number-icon">
-                    <span class="txt-caption txt-500 c-prim-700">22</span>
+                    <span class="txt-caption txt-500 c-prim-700">{{wort.id}}</span>
                 </div>
             </div>
             <!-- Word info -->
@@ -25,15 +32,14 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <!-- Artikel -->
-                        <span class="txt-body txt-500 c-prim-700">Die </span>
+                        <span class="txt-body txt-500 c-prim-700">{{wort.artikel}} </span>
                         <!-- Wort -->
-                        <span class="txt-body txt-500 c-txt">Entwicklung</span>
+                        <span class="txt-body txt-500 c-txt">{{wort.wort}}</span>
                     </div>
                 </div>
                 <!-- Meaning -->
                 <div class="row">
-                    <div class="col-xs-12"><span class="txt-caption txt-400 c-txt">Fortschritt durch technologische
-                            Innovationen.</span></div>
+                    <div class="col-xs-12"><span class="txt-caption txt-400 c-txt">{{wort.bedeutung}}</span></div>
                 </div>
             </div>
         </div>

@@ -5,23 +5,26 @@
             <span class="txt-headline txt-500 c-txt">Hello Eyad !</span>
         </div>
     </div>
+
     <!-- New Word Container -->
-    <form #from="ngForm" class="d-flex f-direction-c f-gap-4 elevation-light-1 border-r-2 p-v-4 p-h-2">
+    <form #form="ngForm" class="d-flex f-direction-c f-gap-4 elevation-light-1 border-r-2 p-v-4 p-h-2"
+        (ngSubmit)="onSubmit(form)">
         <!-- New Word text -->
         <div class="row">
             <div class="col-xs-12">
-                <span class="txt-subhead txt-500 c-txt">Neues Wort hinzufügen</span>
+                <span class="txt-subhead txt-500 c-txt">Neues Wort hinzufügen ({{woerterCount}})</span>
             </div>
         </div>
         <!-- Inputs Wort & Artikel -->
         <div class="row d-flex g-3 justify-sb align-c">
             <!-- Word -->
             <div class="col-xs-6">
-                <input type="text" class="input-custom" ngModel required name="word" placeholder="Wort">
+                <input type="text" class="input-custom" ngModel required name="wort" placeholder="Wort">
             </div>
             <!-- Artikel -->
             <div class="col-xs-6">
-                <input type="text" class="input-custom" ngModel required name="artikel" placeholder="Artikel" pattern="^(Der|Die|Das)$">
+                <input type="text" class="input-custom" ngModel required name="artikel" placeholder="Artikel"
+                    pattern="^(Der|Die|Das)$">
             </div>
         </div>
         <!-- Inpt Synonym -->
@@ -41,13 +44,18 @@
 
         <!-- Button Save -->
         <div class="col-xs-12">
-            <div class="btn-filled-prim-700"><span>Hinzufügen</span></div>
+            <div class="btn-filled-prim-700" (click)="onSubmit(form)"><span>Hinzufügen</span></div>
         </div>
 
         <!-- Button Empty -->
         <div class="col-xs-12">
-            <div class="btn-outlined-prim-700"><span>Leeren</span></div>
+            <div class="btn-outlined-prim-700" (click)="form.reset()"><span>Leeren</span></div>
         </div>
 
+        <!-- Error if the form is invalid -->
+        <div class="col-xs-12 d-flex justify-s align-c f-gap-1 p-1" *ngIf="submitErg != ''">
+            <span class="txt-subhead c-danger-700 txt-500"
+                [ngClass]="{'c-danger-700' : submitErg == 'error', 'c-succ-700' : submitErg == 'success'}">{{errorMessage}}</span>
+        </div>
     </form>
 </div>
